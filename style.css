@@ -1,0 +1,654 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f6fb;
+    color: #263238;
+}
+
+header {
+    background: linear-gradient(135deg, #071952, #088395, #35a29f);
+
+    color: white;
+
+    padding: 22px 60px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 5px 20px rgba(7, 25, 82, 0.25);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 27px;
+
+    letter-spacing: 0.5px;
+}
+
+nav a {
+    color: white;
+
+    text-decoration: none;
+
+    margin-left: 25px;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #a7fff5;
+
+    transform: translateY(-2px);
+}
+
+.home {
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #071952,
+            #088395,
+            #35a29f
+        );
+
+    color: white;
+
+    padding: 100px 20px;
+
+    min-height: 420px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.home::before {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    top: -80px;
+    left: -60px;
+}
+
+.home::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    bottom: -150px;
+    right: -80px;
+}
+
+
+.home h2 {
+    font-size: 48px;
+
+    margin-bottom: 15px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.home p {
+    font-size: 19px;
+
+    margin-bottom: 32px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.home a {
+    text-decoration: none;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ================= BUTTONS ================= */
+
+button {
+    background: linear-gradient(
+        135deg,
+        #071952,
+        #088395
+    );
+
+    color: white;
+
+    border: none;
+
+    padding: 13px 28px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    margin: 5px;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 5px 15px rgba(7, 25, 82, 0.2);
+}
+
+button:hover {
+    background: linear-gradient(
+        135deg,
+        #088395,
+        #35a29f
+    );
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(8, 131, 149, 0.3);
+}
+
+
+/* ================= RESUME SECTION ================= */
+
+.resume-section {
+    width: 75%;
+
+    margin: 55px auto;
+
+    background: white;
+
+    padding: 42px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 30px rgba(7, 25, 82, 0.08);
+
+    border: 1px solid #e5ebf2;
+}
+
+.resume-section h2 {
+    text-align: center;
+
+    color: #071952;
+
+    font-size: 30px;
+
+    margin-bottom: 35px;
+}
+
+
+/* ================= FORM HEADINGS ================= */
+
+form h3 {
+    color: #088395;
+
+    font-size: 20px;
+
+    border-left: 5px solid #35a29f;
+
+    background: linear-gradient(
+        90deg,
+        #e8fbf9,
+        #f7fbff
+    );
+
+    padding: 13px 16px;
+
+    border-radius: 7px;
+
+    margin-top: 30px;
+
+    margin-bottom: 20px;
+}
+
+
+/* ================= LABELS ================= */
+
+label {
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+
+    color: #263238;
+}
+
+
+/* ================= INPUTS ================= */
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #ccd7e2;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    background: #f9fbfd;
+
+    color: #263238;
+
+    transition: 0.3s;
+}
+
+input:hover,
+textarea:hover {
+    border-color: #35a29f;
+
+    background: white;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #088395;
+
+    outline: none;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px rgba(8, 131, 149, 0.12);
+}
+
+textarea {
+    height: 100px;
+
+    resize: vertical;
+}
+
+
+/* ================= SAVE BUTTON ================= */
+
+form button[type="submit"] {
+    background: linear-gradient(
+        135deg,
+        #071952,
+        #088395
+    );
+
+    margin-top: 25px;
+
+    padding: 14px 32px;
+
+    font-weight: bold;
+}
+
+form button[type="submit"]:hover {
+    background: linear-gradient(
+        135deg,
+        #088395,
+        #35a29f
+    );
+}
+
+
+/* ================= RESET BUTTON ================= */
+
+form button[type="reset"] {
+    background: #edf2f7;
+
+    color: #071952;
+
+    margin-top: 25px;
+
+    padding: 14px 32px;
+
+    font-weight: bold;
+
+    border: 1px solid #d7e0e8;
+}
+
+form button[type="reset"]:hover {
+    background: #dce8f0;
+
+    color: #071952;
+}
+
+
+/* ================= RESUME PREVIEW ================= */
+
+#resumePreview {
+    background: #f8fbfc;
+
+    border: 1px solid #dce8ed;
+
+    border-radius: 12px;
+
+    padding: 32px;
+
+    min-height: 180px;
+
+    line-height: 1.7;
+}
+
+#resumePreview h1 {
+    color: #071952;
+
+    margin-bottom: 10px;
+
+    font-size: 32px;
+}
+
+#resumePreview h3 {
+    color: #088395;
+
+    margin-top: 22px;
+
+    margin-bottom: 8px;
+
+    border-bottom: 2px solid #35a29f;
+
+    padding-bottom: 6px;
+}
+
+#resumePreview hr {
+    border: none;
+
+    border-top: 1px solid #dce4ea;
+
+    margin: 20px 0;
+}
+
+
+/* ================= SAVED RESUMES ================= */
+
+#savedResumes {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        );
+
+    gap: 22px;
+}
+
+
+.saved-resume {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f1fafa
+        );
+
+    border: 1px solid #d9e7eb;
+
+    border-radius: 12px;
+
+    padding: 22px;
+
+    box-shadow:
+        0 5px 18px rgba(7, 25, 82, 0.08);
+
+    transition: 0.3s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Small top design */
+
+.saved-resume::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #071952,
+        #088395,
+        #35a29f
+    );
+}
+
+
+.saved-resume:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 10px 25px rgba(7, 25, 82, 0.13);
+}
+
+.saved-resume h3 {
+    color: #071952;
+
+    margin-bottom: 10px;
+
+    font-size: 20px;
+}
+
+.saved-resume p {
+    color: #607d8b;
+
+    margin-bottom: 8px;
+}
+
+.saved-resume button {
+    margin-top: 12px;
+}
+
+
+/* Delete button */
+
+.saved-resume button:last-child {
+    background: #e85d75;
+}
+
+.saved-resume button:last-child:hover {
+    background: #c93f58;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about {
+    text-align: center;
+
+    background: white;
+
+    padding: 60px 20px;
+
+    margin-top: 40px;
+
+    box-shadow:
+        0 -3px 20px rgba(7, 25, 82, 0.05);
+}
+
+.about h2 {
+    color: #071952;
+
+    font-size: 29px;
+
+    margin-bottom: 15px;
+}
+
+.about p {
+    max-width: 700px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    color: #607d8b;
+
+    font-size: 16px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background:
+        linear-gradient(
+            135deg,
+            #071952,
+            #088395
+        );
+
+    color: white;
+
+    text-align: center;
+
+    padding: 24px;
+
+    margin-top: 0;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    header {
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 22px;
+
+        text-align: center;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        margin: 5px 8px;
+
+        font-size: 14px;
+    }
+
+    .home {
+        padding: 70px 20px;
+
+        min-height: 330px;
+    }
+
+    .home h2 {
+        font-size: 32px;
+    }
+
+    .home p {
+        font-size: 16px;
+    }
+
+    .resume-section {
+        width: 92%;
+
+        padding: 25px;
+    }
+
+    .resume-section h2 {
+        font-size: 25px;
+    }
+
+    form h3 {
+        font-size: 18px;
+    }
+
+    input,
+    textarea {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 12px 20px;
+    }
+
+    #savedResumes {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ================= PRINT ================= */
+
+@media print {
+
+    header,
+    .home,
+    form,
+    .about,
+    footer,
+    #saved {
+        display: none;
+    }
+
+    #preview {
+        width: 100%;
+
+        margin: 0;
+
+        box-shadow: none;
+    }
+
+    #resumePreview {
+        border: none;
+
+        box-shadow: none;
+    }
+}
