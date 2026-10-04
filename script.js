@@ -1,176 +1,247 @@
-const resumeForm = document.getElementById("resumeForm");
+const form =
+    document.getElementById("resumeForm");
 
-const resumePreview = document.getElementById("resumePreview");
+const preview =
+    document.getElementById("resumePreview");
 
-const savedResumes = document.getElementById("savedResumes");
+const savedResumes =
+    document.getElementById("savedResumes");
 
-
-// Get saved resumes from browser
-
-let resumes = JSON.parse(localStorage.getItem("resumes")) || [];
+let resumes =
+    JSON.parse(localStorage.getItem("resumes")) || [];
 
 
 // Save Resume
+form.addEventListener(
+    "submit",
+    function (event) {
 
-resumeForm.addEventListener("submit", function(event) {
+        // Prevent page reload
+        event.preventDefault();
+        // Get form values
+        const name =
+            document.getElementById("name").value.trim();
 
-    event.preventDefault();
+        const email =
+            document.getElementById("email").value.trim();
+
+        const phone =
+            document.getElementById("phone").value.trim();
+
+        const address =
+            document.getElementById("address").value.trim();
+
+        const degree =
+            document.getElementById("degree").value.trim();
+
+        const college =
+            document.getElementById("college").value.trim();
+
+        const year =
+            document.getElementById("year").value.trim();
+
+        const cgpa =
+            document.getElementById("cgpa").value.trim();
+
+        const technicalSkills =
+            document.getElementById("technicalSkills").value.trim();
+
+        const softSkills =
+            document.getElementById("softSkills").value.trim();
+
+        const experience =
+            document.getElementById("experience").value.trim();
+
+        const projectName =
+            document.getElementById("projectName").value.trim();
+
+        const projectDescription =
+            document.getElementById("projectDescription").value.trim();
+
+        const objective =
+            document.getElementById("objective").value.trim();
 
 
-    // Get form values
+        // Check required fields
+        if (
+            name === "" ||
+            email === "" ||
+            phone === ""
+        ) {
 
-    const resume = {
+            alert(
+                "Please enter Name, Email and Phone Number."
+            );
 
-        id: Date.now(),
-
-        name: document.getElementById("name").value,
-
-        email: document.getElementById("email").value,
-
-        phone: document.getElementById("phone").value,
-
-        address: document.getElementById("address").value,
-
-        degree: document.getElementById("degree").value,
-
-        college: document.getElementById("college").value,
-
-        year: document.getElementById("year").value,
-
-        cgpa: document.getElementById("cgpa").value,
-
-        technicalSkills: document.getElementById("technicalSkills").value,
-
-        softSkills: document.getElementById("softSkills").value,
-
-        experience: document.getElementById("experience").value,
-
-        projectName: document.getElementById("projectName").value,
-
-        projectDescription: document.getElementById("projectDescription").value,
-
-        objective: document.getElementById("objective").value
-
-    };
+            return;
+        }
 
 
-    // Check required fields
+        // Create resume object
+        const resume = {
 
-    if (
-        resume.name === "" ||
-        resume.email === "" ||
-        resume.phone === ""
-    ) {
+            id: Date.now(),
 
-        alert("Please enter Name, Email and Phone Number.");
+            name: name,
 
-        return;
+            email: email,
+
+            phone: phone,
+
+            address: address,
+
+            degree: degree,
+
+            college: college,
+
+            year: year,
+
+            cgpa: cgpa,
+
+            technicalSkills: technicalSkills,
+
+            softSkills: softSkills,
+
+            experience: experience,
+
+            projectName: projectName,
+
+            projectDescription: projectDescription,
+
+            objective: objective
+
+        };
+
+
+        // Add resume to array
+        resumes.push(resume);
+
+
+        // Save resumes in browser
+        localStorage.setItem(
+            "resumes",
+            JSON.stringify(resumes)
+        );
+
+
+        // Show resume preview
+        showPreview(resume);
+
+
+        // Display saved resumes
+        displayResumes();
+
+
+        // Success message
+        alert(
+            "Resume saved successfully!"
+        );
+
+
+        // Clear form
+        form.reset();
+
     }
-
-
-    // Add resume to array
-
-    resumes.push(resume);
-
-
-    // Save all resumes
-
-    localStorage.setItem("resumes", JSON.stringify(resumes));
-
-
-    // Show preview
-
-    showPreview(resume);
-
-
-    // Show saved resumes
-
-    displayResumes();
-
-
-    // Message
-
-    alert("Resume saved successfully!");
-
-
-    // Clear form
-
-    resumeForm.reset();
-
-});
+);
 
 
 // Show Resume Preview
-
 function showPreview(resume) {
 
-    resumePreview.innerHTML = `
+    preview.innerHTML = `
 
         <div class="resume">
 
-            <h1>${resume.name}</h1>
+            <h1>
+                ${resume.name}
+            </h1>
 
             <p>
-                <strong>Email:</strong> ${resume.email}
+                <strong>Email:</strong>
+                ${resume.email}
             </p>
 
             <p>
-                <strong>Phone:</strong> ${resume.phone}
+                <strong>Phone:</strong>
+                ${resume.phone}
             </p>
 
             <p>
-                <strong>Address:</strong> ${resume.address}
+                <strong>Address:</strong>
+                ${resume.address}
             </p>
 
             <hr>
 
-            <h3>Career Objective</h3>
+            <h3>
+                Career Objective
+            </h3>
 
             <p>
                 ${resume.objective}
             </p>
 
 
-            <h3>Education</h3>
+            <h3>
+                Education
+            </h3>
 
             <p>
-                <strong>Degree:</strong> ${resume.degree}
+                <strong>Degree:</strong>
+                ${resume.degree}
                 <br>
 
-                <strong>College:</strong> ${resume.college}
+                <strong>College:</strong>
+                ${resume.college}
                 <br>
 
-                <strong>Year:</strong> ${resume.year}
+                <strong>Year:</strong>
+                ${resume.year}
                 <br>
 
-                <strong>CGPA / Percentage:</strong> ${resume.cgpa}
+                <strong>CGPA / Percentage:</strong>
+                ${resume.cgpa}
             </p>
 
 
-            <h3>Skills</h3>
+            <h3>
+                Skills
+            </h3>
 
             <p>
-                <strong>Technical Skills:</strong>
+                <strong>
+                    Technical Skills:
+                </strong>
+
                 ${resume.technicalSkills}
             </p>
 
             <p>
-                <strong>Soft Skills:</strong>
+                <strong>
+                    Soft Skills:
+                </strong>
+
                 ${resume.softSkills}
             </p>
 
 
-            <h3>Experience</h3>
+            <h3>
+                Experience
+            </h3>
 
             <p>
                 ${resume.experience}
             </p>
 
 
-            <h3>Projects</h3>
+            <h3>
+                Projects
+            </h3>
 
             <p>
-                <strong>${resume.projectName}</strong>
+                <strong>
+                    ${resume.projectName}
+                </strong>
             </p>
 
             <p>
@@ -178,8 +249,12 @@ function showPreview(resume) {
             </p>
 
 
-            <button onclick="window.print()">
+            <button
+                type="button"
+                onclick="window.print()">
+
                 Print Resume
+
             </button>
 
         </div>
@@ -188,8 +263,7 @@ function showPreview(resume) {
 }
 
 
-// Display all saved resumes
-
+// Display Saved Resumes
 function displayResumes() {
 
     if (resumes.length === 0) {
@@ -201,58 +275,85 @@ function displayResumes() {
     }
 
 
+    // Clear previous records
     savedResumes.innerHTML = "";
 
 
-    resumes.forEach(function(resume, index) {
+    // Display each resume
+    resumes.forEach(
+        function (resume) {
 
-        const resumeBox = document.createElement("div");
-
-        resumeBox.className = "saved-resume";
-
-
-        resumeBox.innerHTML = `
-
-            <h3>${resume.name}</h3>
-
-            <p>
-                ${resume.email}
-            </p>
-
-            <p>
-                ${resume.phone}
-            </p>
-
-            <button onclick="viewResume(${resume.id})">
-                View
-            </button>
-
-            <button onclick="deleteResume(${resume.id})">
-                Delete
-            </button>
-
-        `;
+            const resumeBox =
+                document.createElement("div");
 
 
-        savedResumes.appendChild(resumeBox);
+            resumeBox.className =
+                "saved-resume";
 
-    });
+
+            resumeBox.innerHTML = `
+
+                <h3>
+                    ${resume.name}
+                </h3>
+
+                <p>
+                    ${resume.email}
+                </p>
+
+                <p>
+                    ${resume.phone}
+                </p>
+
+                <button
+                    type="button"
+                    class="viewButton"
+                    onclick="viewResume(${resume.id})">
+
+                    View
+
+                </button>
+
+                <button
+                    type="button"
+                    class="deleteButton"
+                    onclick="deleteResume(${resume.id})">
+
+                    Delete
+
+                </button>
+
+            `;
+
+
+            // Add resume box
+            savedResumes.appendChild(
+                resumeBox
+            );
+
+        }
+    );
+
 }
 
-// View Resume
 
+// View Resume
 function viewResume(id) {
 
-    const resume = resumes.find(function(item) {
+    const resume =
+        resumes.find(
+            function (item) {
 
-        return item.id === id;
+                return item.id === id;
 
-    });
+            }
+        );
 
 
     if (resume) {
 
         showPreview(resume);
+
 
         document
             .getElementById("preview")
@@ -266,58 +367,72 @@ function viewResume(id) {
 
 
 // Delete Resume
-
 function deleteResume(id) {
 
     const confirmDelete =
-        confirm("Are you sure you want to delete this resume?");
+        confirm(
+            "Are you sure you want to delete this resume?"
+        );
 
 
     if (confirmDelete) {
 
-        resumes = resumes.filter(function(resume) {
+        resumes =
+            resumes.filter(
+                function (resume) {
 
-            return resume.id !== id;
+                    return resume.id !== id;
 
-        });
+                }
+            );
 
 
+        // Update browser storage
         localStorage.setItem(
             "resumes",
             JSON.stringify(resumes)
         );
 
 
+        // Update saved resumes
         displayResumes();
 
 
-        alert("Resume deleted successfully!");
+        alert(
+            "Resume deleted successfully!"
+        );
 
     }
 
 }
 
 
-// Reset form
+// Reset Form
+form.addEventListener(
+    "reset",
+    function () {
 
-resumeForm.addEventListener("reset", function() {
+        setTimeout(
+            function () {
 
-    setTimeout(function() {
+                preview.innerHTML = `
 
-        resumePreview.innerHTML = `
+                    <p>
+                        Fill the form and click
+                        "Save Resume"
+                        to see your resume here.
+                    </p>
 
-            <p>
-                Fill the form and click "Save Resume"
-                to see your resume here.
-            </p>
+                `;
 
-        `;
+            },
+            100
+        );
 
-    }, 100);
-
-});
+    }
+);
 
 
-// Display saved resumes when page opens
-
+// Display saved resumes
+// when page opens
 displayResumes();
