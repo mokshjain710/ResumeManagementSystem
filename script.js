@@ -46,13 +46,11 @@ form.addEventListener(
     alert("Please fill Name, Email and Phone Number.");
     return;
 }
-
 // Name must contain only letters and spaces
 if (!/^[a-zA-Z ]+$/.test(name)) {
     alert("Name must contain only letters.");
     return;
 }
-
 // Phone must contain exactly 10 digits
 if (!/^[0-9]{10}$/.test(phone)) {
     alert("Phone number must contain exactly 10 digits.");

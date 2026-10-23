@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Resume Management System</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <header>
         <h1>Resume Management System</h1>
@@ -19,9 +15,7 @@
             <a href="#saved">Saved Resumes</a>
             <a href="#about">About</a>
         </nav>
-
     </header>
-
     <!-- Home Section -->
     <section id="home" class="home">
         <h2>Create Your Resume</h2>
@@ -32,25 +26,19 @@
             <button type="button">Create Resume</button>
         </a>
     </section>
-
     <!-- Resume Form -->
     <section id="resume" class="resume-section">
-
         <h2>Resume Details</h2>
-
         <form id="resumeForm">
-
-            <!-- Personal Information -->
             <h3>Personal Information</h3>
+            <label for="name">Full Name*</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
 
-            <label for="name">Full Name</label>
-            <input type="text" id="name" placeholder="Enter your name">
+            <label for="email">Email*</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="Enter your email">
-
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="Enter your phone number">
+            <label for="phone">Phone Number*</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number" required>
 
             <label for="address">Address</label>
             <textarea id="address" placeholder="Enter your address"></textarea>
